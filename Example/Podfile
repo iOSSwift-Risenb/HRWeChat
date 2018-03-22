@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HRWeChat_Example' do
+  pod 'HRWeChat', :path => '../'
+
+  target 'HRWeChat_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
