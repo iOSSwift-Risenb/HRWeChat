@@ -1,0 +1,6 @@
+framework module Pods_HRWeChat_Tests {
+  umbrella header "Pods-HRWeChat_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

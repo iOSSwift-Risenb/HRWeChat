@@ -7,15 +7,56 @@
 //
 
 import UIKit
+import HRWeChat
+
+/****************
+ 准备1:网络兼容HTTP
+ ----------------
+ <key>NSAppTransportSecurity</key>
+ <dict>
+ <key>NSAllowsArbitraryLoads</key>
+ <true/>
+ </dict>
+ */
+
+
+/***************
+ 准备2:URLTypes
+ ---------------
+ 微信开放平台申请应用获得
+ */
+let WeChat_AppKey = "wxc76b0352eb334e37"
+let WeChat_Secret = "aa899e5be0e49b698e00d29c2b9db917"
+
+
+/***************
+ 准备3:App回调URLTypes
+ ---------------
+ - identifier = any string
+ - URLSchemes = WeChat_AppKey(准备2获得)
+ */
+
+
+/***************
+ 准备4:App跳转白名单
+ ---------------
+ <key>LSApplicationQueriesSchemes</key>
+ <array>
+ <string>weixin</string>
+ <string>wechat</string>
+ </array>
+ */
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        WeChat.applicationDidFinish(appKey: WeChat_AppKey, sercet: WeChat_Secret)
+        
         return true
     }
 
@@ -40,6 +81,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        WeChat.applicationOpenURL(url:url)
+        
+        return true
+    }
+    
 
 
 }

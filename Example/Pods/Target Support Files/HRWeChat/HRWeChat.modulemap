@@ -1,0 +1,6 @@
+framework module HRWeChat {
+  umbrella header "HRWeChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

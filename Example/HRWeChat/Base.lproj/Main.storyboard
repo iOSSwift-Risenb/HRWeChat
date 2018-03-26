@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +21,42 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jA0-hK-q1h">
+                                <rect key="frame" x="0.0" y="207.5" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="authAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iJ2-7y-Q0d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB3-dR-2NT">
+                                <rect key="frame" x="0.0" y="429.5" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="支付">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="payAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fq0-wf-G2Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aB3-dR-2NT" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="0ms-Fm-6fL"/>
+                            <constraint firstItem="jA0-hK-q1h" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="2Vc-xe-XrH"/>
+                            <constraint firstItem="jA0-hK-q1h" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="2/3" id="Cg8-5g-5B5"/>
+                            <constraint firstItem="aB3-dR-2NT" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="4/3" id="S7M-IJ-I5x"/>
+                            <constraint firstItem="aB3-dR-2NT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="VId-QV-nQw"/>
+                            <constraint firstItem="jA0-hK-q1h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="sgJ-eE-vv2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authBtn" destination="jA0-hK-q1h" id="QfG-JR-zim"/>
+                        <outlet property="payBtn" destination="aB3-dR-2NT" id="BzV-X7-cAa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
